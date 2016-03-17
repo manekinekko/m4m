@@ -1,0 +1,265 @@
+.connectApps {
+  @include font();
+  color: $email;
+  font-size: 16px;
+}
+
+.appContainer {
+  width: 600px;
+  position: relative;
+  margin: 0 auto;
+
+  @include respond-to(740px) {
+    width: 100%;
+  }
+}
+.switch {
+  position: relative;
+  width: 230px;
+  height: 80px;
+  display: block;
+  float: left;
+
+  @include respond-to(580px) {
+    float: none;
+    margin: 0 auto;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+
+    &:checked ~ label {
+      .rond {
+        animation: anim ease 0.5s forwards;
+
+          &:before {
+            animation: anim3 cubic-bezier(.30,.01,0,.99) 0.5s  forwards;
+          }
+
+          &:after {
+            animation: anim2 cubic-bezier(.30,.01,0,.99) 0.5s  forwards;
+          }
+      }
+    }
+  }
+}
+  .application {
+    display: inline-block;
+    width: 46px;
+    height: 26px;
+    border: 1px solid #cecece;
+    border-radius: 20px;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    box-sizing: border-box;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .rond {
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: #cecece;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      border-radius: 100%;
+
+
+      &:before {
+        content: " ";
+        position: absolute;
+        width: 10px;
+        height: 2px;
+        display: block;
+        top: 9px;
+        left: 5px;
+        background: #FFFFFF;
+        transform: rotate(45deg);
+        // animation: anim3 ease 1s  forwards;
+      }
+
+      &:after {
+        content: " ";
+        position: absolute;
+        width: 10px;
+        height: 2px;
+        bottom: 9px;
+        left: 5px;
+        display: block;
+        background: #FFFFFF;
+        transform: rotate(-45deg);
+        // animation: anim2 ease 1s  forwards;
+      }
+    }
+  }
+
+
+@keyframes anim {
+  0% {
+    left: 5px;
+    background: #cecece;
+    // transform: rotate(0deg);
+  }
+
+  100% {
+    left: 20px;
+    background: #00a0e0;
+    // transform: rotate(-45deg);
+  }
+}
+@keyframes anim2 {
+  0% {
+    left: 2px;
+    transform: rotate(-45deg);
+  }
+
+  100% {
+    left: 7px;
+    transform: rotate(-225deg);
+  }
+}
+
+@keyframes anim3 {
+  0% {
+    width: 10px;
+    top: 9px;
+    left: 7px;
+    transform: rotate(45deg);
+  }
+
+  100% {
+    top: 10px;
+    left: 3px;
+    width: 7px;
+    transform: rotate(-135deg);
+  }
+}
+
+.switch:nth-child(odd) {
+  margin-right: 80px;
+
+  @include respond-to(580px) {
+    margin-right: auto;
+  }
+}
+
+.imgLogo {
+  width: 180px;
+  height: 80px;
+  display: block;
+  position: absolute;
+  left: -180px;
+  @include propriete(transition, all ease-in-out 0.3s);
+  top: -25px;
+  background: url(../../../assets/img/connect/application/sprite_application_180x80.png) no-repeat;
+
+  @include respond-to(740px) {
+    transition: none;
+  }
+}
+.nike {
+  background-position: 0 -80px;
+}
+
+.garmin {
+  background-position: -180px -80px;
+}
+
+.runtastic {
+  background-position: -360px -80px;
+}
+
+.strava {
+  background-position: -540px -80px;
+}
+
+.runkeeper {
+  background-position: -720px -80px;
+}
+
+.mapmyrun {
+  background-position: -900px -80px;
+}
+
+.polar {
+  background-position: -1080px -80px;
+}
+
+.endomondo {
+  background-position: -1260px -80px;
+}
+
+// switch Active
+.switch.active, .switch:hover {
+  .nike {
+    background-position: 0 0;
+  }
+
+  .garmin {
+    background-position: -180px 0;
+  }
+
+  .runtastic {
+    background-position: -360px 0;
+  }
+
+  .strava {
+    background-position: -540px 0;
+  }
+
+  .runkeeper {
+    background-position: -720px 0;
+  }
+
+  .mapmyrun {
+    background-position: -900px 0;
+  }
+
+  .polar {
+    background-position: -1080px 0;
+  }
+
+  .endomondo {
+    background-position: -1260px 0;
+  }
+}
+
+.switch.active {
+  .rond {
+    animation: anim ease 0.5s forwards;
+
+    &:before {
+      animation: anim3 ease 1s  forwards;
+    }
+
+    &:after {
+      animation: anim2 ease 1s  forwards;
+    }
+  }
+}
+
+.switchText {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.7px;
+  position: absolute;
+  bottom: -14px;
+  left: 29px;
+  width: 230px;
+  color: #CECECE;
+  transition: color ease-in-out 0.3s;
+
+  .capital {
+    font-size: 24px;
+  }
+}
+
+.switch.active {
+  .switchText {
+    color: #000000;
+  }
+}

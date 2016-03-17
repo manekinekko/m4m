@@ -1,0 +1,59 @@
+<h2 translate="APPLICATION.TITLE" class="titleConnect tcenter"></h2>
+<p translate="APPLICATION.P1" class="connectApps tcenter"></p>
+
+<div class="alert">
+  <div ng-repeat="alert in connectApps.alerts" ng-class="alert.type" class="alert-message alert-application">{{
+    alert.msg | translate:{'provider': connectApps.errors.provider} }}
+  </div>
+</div>
+
+<div class="appContainer">
+  <div ng-click="connectApps.oauth('nike', true)" ng-class="{ 'active' : connectApps.apps.nike }" class="switch">
+    <div class="application"><span class="rond"></span>
+      <div class="imgLogo nike"></div>
+    </div>
+  </div>
+  <div ng-click="connectApps.getCredApps('garmin', true)" ng-class="{ 'active' : connectApps.apps.garmin }"
+       class="switch">
+    <div class="application"><span class="rond"></span>
+      <div class="imgLogo garmin"></div>
+    </div>
+    <div class="switchText"><span class="capital">M</span>ontre et application</div>
+  </div>
+  <div ng-click="connectApps.getCredApps('runtastic', false)" ng-class="{ 'active' : connectApps.apps.runtastic }"
+       class="switch">
+    <div class="application"><span class="rond"></span>
+      <div class="imgLogo runtastic"></div>
+    </div>
+  </div>
+  <div ng-click="connectApps.oauth('strava', false)" ng-class="{ 'active' : connectApps.apps.strava }" class="switch">
+    <div class="application"><span class="rond"></span>
+      <div class="imgLogo strava"></div>
+    </div>
+  </div>
+  <div ng-click="connectApps.oauth('runkeeper', false)" ng-class="{ 'active' : connectApps.apps.runkeeper }"
+       class="switch">
+    <div class="application"><span class="rond"></span>
+      <div class="imgLogo runkeeper"></div>
+    </div>
+  </div>
+  <div ng-click="connectApps.oauth('mapmyrun', false)" ng-class="{ 'active' : connectApps.apps.mapmyrun }"
+       class="switch">
+    <div class="application"><span class="rond"></span>
+      <div class="imgLogo mapmyrun"></div>
+    </div>
+  </div>
+  <div ng-click="connectApps.getCredApps('polar', false)" ng-class="{ 'active' : connectApps.apps.polar }"
+       class="switch">
+    <div class="application"><span class="rond"></span>
+      <div class="imgLogo polar"></div>
+    </div>
+  </div>
+  <div ng-click="connectApps.oauth('endomondo', false)" ng-class="{ 'active' : connectApps.apps.endomondo }"
+       class="switch">
+    <div class="application"><span class="rond"></span>
+      <div class="imgLogo endomondo"></div>
+    </div>
+  </div>
+  <div class="cleft"></div>
+</div><p class="connectApps tcenter">{{ 'APPLICATION.P2' | translate }}</p>

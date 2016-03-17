@@ -1,0 +1,60 @@
+h2.titleConnect.tcenter(translate="APPLICATION.TITLE")
+
+p.connectApps.tcenter(translate="APPLICATION.P1")
+
+.alert
+  .alert-message.alert-application(
+  ng-repeat="alert in connectApps.alerts",
+  ng-class="alert.type") {{ alert.msg | translate:{'provider': connectApps.errors.provider} }}
+
+.appContainer
+  .switch(ng-click="connectApps.oauth('nike', true)", ng-class="{ 'active' : connectApps.apps.nike }")
+    .application
+      span.rond
+      .imgLogo.nike
+
+  .switch(ng-click="connectApps.getCredApps('garmin', true)", ng-class="{ 'active' : connectApps.apps.garmin }")
+    .application
+      span.rond
+      .imgLogo.garmin
+
+    .switchText
+      span.capital M
+      | ontre et application
+
+
+  .switch(ng-click="connectApps.getCredApps('runtastic', false)", ng-class="{ 'active' : connectApps.apps.runtastic }")
+
+    .application
+      span.rond
+      .imgLogo.runtastic
+
+  .switch(ng-click="connectApps.oauth('strava', false)", ng-class="{ 'active' : connectApps.apps.strava }")
+    .application
+      span.rond
+      .imgLogo.strava
+
+  .switch(ng-click="connectApps.oauth('runkeeper', false)", ng-class="{ 'active' : connectApps.apps.runkeeper }")
+    .application
+      span.rond
+      .imgLogo.runkeeper
+
+  .switch(ng-click="connectApps.oauth('mapmyrun', false)", ng-class="{ 'active' : connectApps.apps.mapmyrun }")
+    .application
+      span.rond
+      .imgLogo.mapmyrun
+
+  .switch(ng-click="connectApps.getCredApps('polar', false)", ng-class="{ 'active' : connectApps.apps.polar }")
+    .application
+      span.rond
+      .imgLogo.polar
+
+  .switch(ng-click="connectApps.oauth('endomondo', false)", ng-class="{ 'active' : connectApps.apps.endomondo }")
+    .application
+      span.rond
+      .imgLogo.endomondo
+
+  .cleft
+
+p.connectApps.tcenter {{ 'APPLICATION.P2' | translate }}
+
