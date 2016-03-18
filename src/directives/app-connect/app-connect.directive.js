@@ -19,7 +19,7 @@ function m4mConnectApp() {
       state: '@',
       stateUrl: '@'
     },
-    templateUrl: 'components/applications/connect/all/app-connect-all.html',
+    templateUrl: 'src/directives/app-connect/app-connect.html',
     controller: ConnectAppsController,
     controllerAs: 'connectApps',
     bindToController: true

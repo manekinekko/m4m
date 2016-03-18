@@ -9,9 +9,9 @@ angular
  */
 function AppsService($resource, $q, $window, LocalStorageService) {
 
-  var uri = $window.location.origin + '/auth/running-heroes/provider/';
+  var uri = $window.location.origin + '/auth/provider/';
 
-  var resource = $resource('/auth/running-heroes/:controller/:provider/:action', {},
+  var resource = $resource('/auth/:controller/:provider/:action', {},
     {
       get: {
         method: 'GET',

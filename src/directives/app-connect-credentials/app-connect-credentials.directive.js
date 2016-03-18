@@ -17,7 +17,7 @@ function m4mConnectAppsCredentials() {
       provider: '=',
       urlParent: '@'
     },
-    templateUrl: 'components/applications/connect/credentials/app-connect-credentials.html',
+    templateUrl: 'src/directives/app-connect-credentials/app-connect-credentials.html',
     controller: ConnectAppsCredentialsController,
     controllerAs: 'connectAppsCredentials',
     bindToController: true
