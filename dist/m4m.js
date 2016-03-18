@@ -249,7 +249,7 @@ function m4mConnectApp() {
   /**
    * @ngInject
    */
-  function ConnectAppsController(Alert, AppsService, StateService, ModalService) {
+  function ConnectAppsController(Alert, m4mAppsService, StateService, ModalService) {
     var vm = this;
     vm.oauth = oauth;
     vm.getCredApps = getCredApps;
