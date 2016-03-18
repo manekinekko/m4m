@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('m4m.services')
+  .module('m4m')
   .service('m4mAppsService', ['$resource', '$q', '$window', 'LocalStorageService', m4mAppsService]);
 
 /**

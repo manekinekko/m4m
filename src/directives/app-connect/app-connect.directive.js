@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module('m4m.directives')
+  .module('m4m')
   .directive('m4mConnectApp', m4mConnectApp);
 
 
