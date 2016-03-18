@@ -11,11 +11,6 @@ angular
 'use strict';
 
 angular
-  .module('m4m', ['m4m.directives', 'm4m.services']);
-
-'use strict';
-
-angular
   .module('m4m.services')
   .service('m4mAppsService', AppsService);
 
@@ -24,9 +19,9 @@ angular
  */
 function AppsService($resource, $q, $window, LocalStorageService) {
 
-  var uri = $window.location.origin + '/auth/running-heroes/provider/';
+  var uri = $window.location.origin + '/auth/provider/';
 
-  var resource = $resource('/auth/running-heroes/:controller/:provider/:action', {},
+  var resource = $resource('/auth/:controller/:provider/:action', {},
     {
       get: {
         method: 'GET',
@@ -149,7 +144,7 @@ function m4mConnectAppsCredentials() {
       provider: '=',
       urlParent: '@'
     },
-    templateUrl: 'components/applications/connect/credentials/app-connect-credentials.html',
+    templateUrl: 'src/directives/app-connect-credentials/app-connect-credentials.html',
     controller: ConnectAppsCredentialsController,
     controllerAs: 'connectAppsCredentials',
     bindToController: true
@@ -233,7 +228,7 @@ angular
 
 /**
  * @name m4mConnectApp
- * @desc <m4m-connect-apps> Directive
+ * @desc <m4m-connect-app> Directive
  * @type {Function}
  */
 function m4mConnectApp() {
@@ -245,7 +240,7 @@ function m4mConnectApp() {
       state: '@',
       stateUrl: '@'
     },
-    templateUrl: 'components/applications/connect/all/app-connect-all.html',
+    templateUrl: 'src/directives/app-connect/app-connect.html',
     controller: ConnectAppsController,
     controllerAs: 'connectApps',
     bindToController: true
@@ -300,17 +295,22 @@ function m4mConnectApp() {
     }
 
     function openFAQ() {
-      return ModalService.showModal({
-          templateUrl: 'components/modal/modalFaq/modalFaq.html',
-          controller: 'ModalFaqController',
-          controllerAs: 'faq'
-        })
-        .then(function(modal) {
+
+      // return ModalService.showModal({
+      //     templateUrl: 'components/modal/modalFaq/modalFaq.html',
+      //     controller: 'ModalFaqController',
+      //     controllerAs: 'faq'
+      //   })
+      //   .then(function(modal) {
 
 
-          }
-        );
+      //   });
     }
   }
 
 }
+
+'use strict';
+
+angular
+  .module('m4m', ['m4m.directives', 'm4m.services']);

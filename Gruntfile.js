@@ -6,7 +6,7 @@ module.exports = function(grunt) {
       options: {
       },
       dist: {
-        src: ['src/services/*.js','src/directives/*.js','src/m4m.module.js','src/services/*/*.js','src/directives/*/*.js'],
+        src: ['src/services/*.js','src/directives/*.js','src/services/*/*.js','src/directives/*/*.js','src/m4m.module.js',],
         dest: 'dist/<%= pkg.name %>.js'
       }
     },

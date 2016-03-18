@@ -7,7 +7,7 @@ angular
 
 /**
  * @name m4mConnectApp
- * @desc <m4m-connect-apps> Directive
+ * @desc <m4m-connect-app> Directive
  * @type {Function}
  */
 function m4mConnectApp() {
@@ -74,16 +74,16 @@ function m4mConnectApp() {
     }
 
     function openFAQ() {
-      return ModalService.showModal({
-          templateUrl: 'components/modal/modalFaq/modalFaq.html',
-          controller: 'ModalFaqController',
-          controllerAs: 'faq'
-        })
-        .then(function(modal) {
+
+      // return ModalService.showModal({
+      //     templateUrl: 'components/modal/modalFaq/modalFaq.html',
+      //     controller: 'ModalFaqController',
+      //     controllerAs: 'faq'
+      //   })
+      //   .then(function(modal) {
 
 
-          }
-        );
+      //   });
     }
   }
 
