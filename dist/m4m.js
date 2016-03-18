@@ -1,23 +1,18 @@
 'use strict';
 
 angular
-  .module('m4m.services', ['LocalStorageModule']);
+  .module('m4m', ['LocalStorageModule']);
 
 'use strict';
 
 angular
-  .module('m4m.directives', ['m4m.services']);
-
-'use strict';
-
-angular
-  .module('m4m.services')
-  .service('m4mAppsService', AppsService);
+  .module('m4m')
+  .service('m4mAppsService', ['$resource', '$q', '$window', 'LocalStorageService', m4mAppsService]);
 
 /**
  * @ngInject
  */
-function AppsService($resource, $q, $window, LocalStorageService) {
+function m4mAppsService($resource, $q, $window, LocalStorageService) {
 
   var uri = $window.location.origin + '/auth/provider/';
 
@@ -128,7 +123,7 @@ function AppsService($resource, $q, $window, LocalStorageService) {
 'use strict';
 
 angular
-  .module('m4m.directives')
+  .module('m4m')
   .directive('m4mConnectAppsCredentials', m4mConnectAppsCredentials);
 
 /**
@@ -222,7 +217,7 @@ function m4mConnectAppsCredentials() {
 'use strict';
 
 angular
-  .module('m4m.directives')
+  .module('m4m')
   .directive('m4mConnectApp', m4mConnectApp);
 
 
@@ -309,8 +304,3 @@ function m4mConnectApp() {
   }
 
 }
-
-'use strict';
-
-angular
-  .module('m4m', ['m4m.directives', 'm4m.services']);
