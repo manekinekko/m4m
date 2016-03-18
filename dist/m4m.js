@@ -6,7 +6,7 @@ angular
 'use strict';
 
 angular
-  .module('m4m.directives', []);
+  .module('m4m.directives', ['m4m.services']);
 
 'use strict';
 
@@ -153,11 +153,11 @@ function m4mConnectAppsCredentials() {
   /**
    * @ngInject
    */
-  function ConnectAppsCredentialsController($translate, $window, AppsService, Alert, Helper, Form, AUTH_EVENTS) {
+  function ConnectAppsCredentialsController($translate, $window, m4mAppsService, Alert, Helper, Form, AUTH_EVENTS) {
 
     var vm = this;
 
-    vm.readableProvider = AppsService.getReadableProvider(vm.provider);
+    vm.readableProvider = m4mAppsService.getReadableProvider(vm.provider);
     vm.app = {
       provider: vm.provider,
       credentials: {}
@@ -208,7 +208,7 @@ function m4mConnectAppsCredentials() {
         if (vm.app.provider === 'polar') {
           vm.app.credentials.password = 'polar';
         }
-        AppsService.credentialsLogin(vm.app).then(loginSuccess, loginError);
+        m4mAppsService.credentialsLogin(vm.app).then(loginSuccess, loginError);
       } else {
         vm.disableForm = false;
       }
@@ -258,22 +258,22 @@ function m4mConnectApp() {
     function oauth (provider, hasApi, stateUrl) {
 
       function successCallback() {
-        return AppsService.oauthLogin(provider, stateUrl || vm.stateUrl);
+        return m4mAppsService.oauthLogin(provider, stateUrl || vm.stateUrl);
       }
 
       function errorCallback() {
 
         vm.errors = {
-          provider: AppsService.getReadableProvider(provider)
+          provider: m4mAppsService.getReadableProvider(provider)
         };
         vm.alerts = Alert.setAlert('warning', 'ERROR.API_NOT_READY');
 
       }
 
       if(hasApi) {
-        AppsService.checkProviderStatus(provider).then(successCallback, errorCallback);
+        m4mAppsService.checkProviderStatus(provider).then(successCallback, errorCallback);
       } else {
-        return AppsService.oauthLogin(provider, vm.stateUrl);
+        return m4mAppsService.oauthLogin(provider, vm.stateUrl);
       }
     }
 
@@ -288,7 +288,7 @@ function m4mConnectApp() {
       }
 
       if(hasApi) {
-        AppsService.checkProviderStatus(provider).then(successCallback, errorCallback);
+        m4mAppsService.checkProviderStatus(provider).then(successCallback, errorCallback);
       } else {
         StateService.goToState(vm.state, { provider: provider});
       }

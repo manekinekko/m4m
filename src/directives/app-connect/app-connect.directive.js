@@ -37,22 +37,22 @@ function m4mConnectApp() {
     function oauth (provider, hasApi, stateUrl) {
 
       function successCallback() {
-        return AppsService.oauthLogin(provider, stateUrl || vm.stateUrl);
+        return m4mAppsService.oauthLogin(provider, stateUrl || vm.stateUrl);
       }
 
       function errorCallback() {
 
         vm.errors = {
-          provider: AppsService.getReadableProvider(provider)
+          provider: m4mAppsService.getReadableProvider(provider)
         };
         vm.alerts = Alert.setAlert('warning', 'ERROR.API_NOT_READY');
 
       }
 
       if(hasApi) {
-        AppsService.checkProviderStatus(provider).then(successCallback, errorCallback);
+        m4mAppsService.checkProviderStatus(provider).then(successCallback, errorCallback);
       } else {
-        return AppsService.oauthLogin(provider, vm.stateUrl);
+        return m4mAppsService.oauthLogin(provider, vm.stateUrl);
       }
     }
 
@@ -67,7 +67,7 @@ function m4mConnectApp() {
       }
 
       if(hasApi) {
-        AppsService.checkProviderStatus(provider).then(successCallback, errorCallback);
+        m4mAppsService.checkProviderStatus(provider).then(successCallback, errorCallback);
       } else {
         StateService.goToState(vm.state, { provider: provider});
       }

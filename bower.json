@@ -1,9 +1,14 @@
 {
   "name": "m4m",
   "version": "0.0.1",
-  "main": ["dist/m4m.min.js"],
-  "ignore": ["node_modules"],
+  "main": [
+    "dist/m4m.min.js"
+  ],
+  "ignore": [
+    "node_modules"
+  ],
   "dependencies": {
-    "angular": "1.4.0-rc.2"
+    "angular": "1.4.0-rc.2",
+    "angular-local-storage": "^0.2.7"
   }
 }

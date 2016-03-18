@@ -26,11 +26,11 @@ function m4mConnectAppsCredentials() {
   /**
    * @ngInject
    */
-  function ConnectAppsCredentialsController($translate, $window, AppsService, Alert, Helper, Form, AUTH_EVENTS) {
+  function ConnectAppsCredentialsController($translate, $window, m4mAppsService, Alert, Helper, Form, AUTH_EVENTS) {
 
     var vm = this;
 
-    vm.readableProvider = AppsService.getReadableProvider(vm.provider);
+    vm.readableProvider = m4mAppsService.getReadableProvider(vm.provider);
     vm.app = {
       provider: vm.provider,
       credentials: {}
@@ -81,7 +81,7 @@ function m4mConnectAppsCredentials() {
         if (vm.app.provider === 'polar') {
           vm.app.credentials.password = 'polar';
         }
-        AppsService.credentialsLogin(vm.app).then(loginSuccess, loginError);
+        m4mAppsService.credentialsLogin(vm.app).then(loginSuccess, loginError);
       } else {
         vm.disableForm = false;
       }
