@@ -2,12 +2,12 @@
 
 angular
   .module('m4m.services')
-  .service('m4mAppsService', AppsService);
+  .service('m4mAppsService', ['$resource', '$q', '$window', 'LocalStorageService', m4mAppsService]);
 
 /**
  * @ngInject
  */
-function AppsService($resource, $q, $window, LocalStorageService) {
+function m4mAppsService($resource, $q, $window, LocalStorageService) {
 
   var uri = $window.location.origin + '/auth/provider/';
 
