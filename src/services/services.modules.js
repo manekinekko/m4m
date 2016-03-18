@@ -1,4 +1,4 @@
 'use strict';
 
 angular
-  .module('m4m.services', []);
+  .module('m4m.services', ['LocalStorageModule']);
